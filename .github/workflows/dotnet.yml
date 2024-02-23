@@ -45,6 +45,9 @@ jobs:
       with:
         name: nuget-packages
 
+    - name: Print contents of downloaded directory
+      run: ls ${{ github.workspace }}/nuget-packages
+
     - name: Create destination directory
       run: mkdir -p ~/nupkgs
 
