@@ -12,37 +12,23 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-
     - name: Restore dependencies for Api project
       run: dotnet restore src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj
-
     - name: Build Api project
       run: dotnet build --no-restore src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj
-
     - name: Test Api project
       run: dotnet test --no-build --verbosity normal src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj
-
-    - name: Install xmlstarlet
-      run: sudo apt-get update && sudo apt-get install -y xmlstarlet
-
-    - name: Update package version
-      run: xmlstarlet ed --inplace -u '//Version' -v '1.0.2' src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj
-    
-    - name: Ensure nupkgs directory exists
-      run: mkdir -p ~/nupkgs
 
     - name: Generate NuGet packages
       run: |
         dotnet pack src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj --output nupkgs
         ls nupkgs # List the contents of the output directory to verify that packages were generated
-
-    - name: Move NuGet packages to nupkgs directory
-      run: mv nupkgs/*.nupkg ~/nupkgs/
+    - name: Publish package
+      run: dotnet nuget push nupkgs/*.nupkg --source "https://nuget.pkg.github.com/pravesh-77/index.json" --api-key ${{ secrets.DotNet_Token }} --skip-duplicate
 
     - name: Archive NuGet packages
       uses: actions/upload-artifact@v2
@@ -60,7 +46,7 @@ jobs:
         name: nuget-packages
 
     - name: Create destination directory
-      run: mkdir -p $HOME/packages
+      run: mkdir -p ~/nupkgs
 
-    #- name: Extract NuGet packages
-     # run: tar -xvf nuget-packages.zip -C $HOME/packages/
+    - name: Move NuGet packages to destination directory
+      run: mv nupkgs/*.nupkg /home/praveshp/Desktop/pop/
