@@ -31,7 +31,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
     - name: Update package version
-      run: xmlstarlet ed --inplace -u '//Version' -v '1.0.1' src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj
+      run: xmlstarlet ed --inplace -u '//Version' -v '1.0.2' src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj
 
 
     - name: Generate NuGet packages
