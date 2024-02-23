@@ -6,7 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>AspNetCoreAPI_GitHubAction</RootNamespace>
     <IsPackable>true</IsPackable>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild> <!-- Add this line -->
     <version>1.0.1</version>
   </PropertyGroup>
 
