@@ -49,4 +49,4 @@ jobs:
       run: mkdir -p ~/nupkgs
 
     - name: Move NuGet packages to destination directory
-      run: mv nupkgs/*.nupkg /home/praveshp/Desktop/pop/
+      run: mv nupkgs/*.nupkg ~/nupkgs/
