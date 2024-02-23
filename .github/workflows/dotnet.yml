@@ -41,12 +41,8 @@ jobs:
         dotnet pack src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj --output nupkgs
         ls nupkgs # List the contents of the output directory to verify that packages were generated
 
-    - name: Publish package
-      run: |
-        dotnet nuget push nupkgs/*.nupkg \
-          --source "https://nuget.pkg.github.com/pravesh-77/index.json" \
-          --api-key ${{ secrets.DotNet_Token }} \
-          --skip-duplicate
+    - name: Move NuGet packages to nupkgs directory
+      run: mv nupkgs/*.nupkg ~/nupkgs/
 
     - name: Archive NuGet packages
       uses: actions/upload-artifact@v2
