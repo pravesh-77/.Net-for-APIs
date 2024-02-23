@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>AspNetCoreAPI_GitHubAction</RootNamespace>
     <IsPackable>true</IsPackable>
+    <version>1.0.1</version>
+
   </PropertyGroup>
 
   <ItemGroup>
