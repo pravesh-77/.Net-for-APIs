@@ -32,9 +32,9 @@ jobs:
 
     - name: Update package version
       run: xmlstarlet ed --inplace -u '//Version' -v '1.0.2' src/AspNetCoreAPI-GitHubAction.Api/AspNetCoreAPI-GitHubAction.Api.csproj
-
+    
     - name: Ensure nupkgs directory exists
-      run: mkdir -p nupkgs
+      run: mkdir -p /mnt/c/Users/Admin/Projects/AspNetCoreAPI/AspNetCoreAPI-GitHubAction/nupkgs
 
     - name: Generate NuGet packages
       run: |
