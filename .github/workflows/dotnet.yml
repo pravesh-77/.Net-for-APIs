@@ -35,4 +35,4 @@ jobs:
       run: curl -LJO https://github.com/pravesh-77/DotNet-WF/packages/1.0.1/download/DotNet-WF/1.0.1/AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg
 
     - name: Move NuGet packages to local directory
-      run: mv AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg "/mnt/c/Program Files/dotnet/package/"
+      run: mv "AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg" "/mnt/c/Program Files/dotnet/package/"
