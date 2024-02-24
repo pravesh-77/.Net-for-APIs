@@ -1,53 +1,32 @@
-# Project: ASP.NET Core API project hosted on GitHub along with code analysis using SonarCloud.
-Dependency: curl Dependency, Authentication Token .
-# CI/CD: Build Automation, Package Generation, Package Publishing and Download Automation.
+# Project Overview:
+Project Type: ASP.NET Core API project hosted on GitHub
+Code Analysis: Integrated SonarCloud for code analysis
+Dependencies: Utilizes curl dependency and requires an Authentication Token
+CI/CD Automation: Implements Build Automation, Package Generation, Package Publishing, and Download Automation
 
-1.  Trigger:--> This workflow is triggered on pushes to the main branch and pull requests targeting the main branch.
+# Workflow Details:-->
+1. Trigger:
+Workflow triggered on pushes to main branch and pull requests targeting main branch.
+
+2. Jobs:
+build:
+
+3. Environment: Ubuntu
    
-# Jobs:
-2.  build:--> This job runs on an Ubuntu environment.
-3.  Steps:-->
-# Checkout: Checks out the repository's code.
-# Setup .NET: Sets up the .NET environment using the specified version.
-# Restore dependencies for Api project: Restores NuGet dependencies for the API project.
-# Build Api project: Builds the API project.
-# Test Api project: Runs tests for the API project.
-# Generate NuGet packages: Packs the API project into NuGet packages and stores them in the 'nupkgs' directory.
-# Publish package: Publishes the generated NuGet packages to a NuGet package source. (It uses an API key stored in GitHub secrets for authentication)
-# Download NuGet packages from GitHub package registry: This step attempts to download a NuGet package from the GitHub package registry using curl. It downloads a specific version of the package, AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg, from the repository pravesh-77/DotNet-WF at version 1.0.1.
+4. Steps:
+Checkout repository code.
+Setup .NET environment.
+Restore NuGet dependencies for API project.
+Build API project.
+Test API project.
+Generate NuGet packages.
+Publish NuGet packages to a package source using an API key.
+Download a specific version of a NuGet package from GitHub package registry using curl.
 
-4. The curl command below will provide to download the NuGet package from the GitHub package registry to your local machine:-->
-   # curl -LJO https://github.com/pravesh-77/DotNet-WF/packages/1.0.1/download/DotNet-WF/1.0.1/AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg
-   Note: Please change the version to get the package in the file name/location: AspNetCoreAPI-GitHubAction.Api.csproj in src.
+# Additional Note:
+The provided curl command allows downloading a specific NuGet package version from the GitHub package registry:
+  curl -LJO https://github.com/pravesh-77/DotNet-WF/packages/1.0.1/download/DotNet-WF/1.0.1/AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg
+  PS: PLease change the version in AspNetCoreAPI-GitHubAction.Api.csproj file in src project's folder.
 
-# In short:
- This workflow automates the (build), (test), (packaging), and (publishing processes for a .NET project), specifically targeting an API project. Additionally, it seems to have a step for downloading a specific version of a NuGet package from a GitHub package registry, possibly for further usage or validation purposes.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Summary:
+This GitHub Actions workflow automates the entire CI/CD pipeline for an ASP.NET Core API project hosted on GitHub. It encompasses building, testing, packaging, publishing, and even includes a step for downloading specific NuGet packages for further usage or validation. The integration with SonarCloud ensures code quality and security analysis throughout the process.
