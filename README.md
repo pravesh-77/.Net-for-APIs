@@ -1,5 +1,5 @@
 # Project: ASP.NET Core API project hosted on GitHub
-
+Dependency: curl Dependency, Authentication Token .
 # CI/CD: Build Automation, Package Generation, Package Publishing and Download Automation.
 
 1.  Trigger:--> This workflow is triggered on pushes to the main branch and pull requests targeting the main branch.
@@ -13,8 +13,8 @@
 # Build Api project: Builds the API project.
 # Test Api project: Runs tests for the API project.
 # Generate NuGet packages: Packs the API project into NuGet packages and stores them in the 'nupkgs' directory.
-# Publish package: Publishes the generated NuGet packages to a NuGet package source. It uses an API key stored in GitHub secrets for authentication.
-# Download NuGet packages from GitHub package registry: This step seems to be attempting to download a NuGet package from the GitHub package registry using curl. It downloads a specific version of the package, AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg, from the repository pravesh-77/DotNet-WF at version 1.0.1.
+# Publish package: Publishes the generated NuGet packages to a NuGet package source. (It uses an API key stored in GitHub secrets for authentication)
+# Download NuGet packages from GitHub package registry: This step attempts to download a NuGet package from the GitHub package registry using curl. It downloads a specific version of the package, AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg, from the repository pravesh-77/DotNet-WF at version 1.0.1.
 
 4. The curl command below will provide to download the NuGet package from the GitHub package registry to your local machine:-->
    # curl -LJO https://github.com/pravesh-77/DotNet-WF/packages/1.0.1/download/DotNet-WF/1.0.1/AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg
