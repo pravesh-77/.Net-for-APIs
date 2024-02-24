@@ -1,4 +1,4 @@
-# Project: ASP.NET Core API project hosted on GitHub
+# Project: ASP.NET Core API project hosted on GitHub along with code analysis using SonarCloud.
 Dependency: curl Dependency, Authentication Token .
 # CI/CD: Build Automation, Package Generation, Package Publishing and Download Automation.
 
