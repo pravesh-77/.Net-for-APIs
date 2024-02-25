@@ -24,7 +24,7 @@ Publish NuGet packages to a package source using an API key.
 Download a specific version of a NuGet package from GitHub package registry using curl.
 
 # Additional Note:
-The provided curl command allows downloading a specific NuGet package version from the GitHub package registry:
+The provided curl command allows downloading a specific NuGet package version from the GitHub package registry to destination directory:
   curl -LJO https://github.com/pravesh-77/DotNet-WF/packages/1.0.1/download/DotNet-WF/1.0.1/AspNetCoreAPI-GitHubAction.Api.1.0.1.nupkg
   PS: PLease change the version in AspNetCoreAPI-GitHubAction.Api.csproj file in src project's folder.
 
